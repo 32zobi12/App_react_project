@@ -1,23 +1,21 @@
 import React from 'react'; 
 import s from './NavBar.module.css'
-
+import {NavLink} from "react-router-dom";
 const NavBar = () => {
     return (
         <nav className={s.nav}>
             <div className={s.item }>
-                Profile
-            </div>
-            <div className={`${s.item} ${s.active}`}>Messages</div>
+                <NavLink to="/Profile" className ={navData => navData.isActive ? s.active: s.item}> Profile</NavLink>
+            </div>           
             <div className={s.item}>
-                News
+               <NavLink to="/Car" className = { navData => navData.isActive ? s.active : s.item }> Car</NavLink>
             </div><div className={s.item}>
-                Music
+                <NavLink to='/User' className = { navData => navData.isActive ? s.active : s.item }>User</NavLink>
             </div>
-            <div className={s.item}>
-                Setting
-            </div>
+           
         </nav>
 
     )
 }
+/*className = { navData => navData.isActive ? s.active : s.item } новый синтаксис router dom, activeClassname dont work, создается новая переменяя далее стрелочная функция название переменной по синтаксису, далее s.active :s.item тут логично */
 export default NavBar;
